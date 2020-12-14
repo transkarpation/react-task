@@ -1,4 +1,6 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import store from './redux/store'
 import './App.css';
 import {
   BrowserRouter as Router,
@@ -10,12 +12,13 @@ import Navbar from './components/Navbar'
 
 function App() {
   return (
-    <div className="container">
-      <h1 className="text-muted">App</h1>
-      <Router>
-        <Navbar />
-      </Router>
-    </div>
+    <Provider store={store}>
+      <div className="container">
+        <Router>
+          <Navbar />
+        </Router>
+      </div>
+    </Provider>
   );
 }
 
